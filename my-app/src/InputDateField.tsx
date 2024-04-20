@@ -1,7 +1,7 @@
 import React from "react";
 import { useField } from "formik";
 
-interface InputTextFieldProps {
+interface InputDateFieldProps {
     userProfileValue: string;
     userProfileKey: string;
     inputLabel: string;
@@ -9,7 +9,7 @@ interface InputTextFieldProps {
 }
 
 // DESTRUCTURE PARAMETER
-const InputTextField: React.FC<InputTextFieldProps> = ({
+const InputDateField: React.FC<InputDateFieldProps> = ({
     userProfileKey,
     userProfileValue,
     inputLabel,
@@ -35,7 +35,7 @@ const InputTextField: React.FC<InputTextFieldProps> = ({
                 style={{ marginTop: "0.5vw" }}
                 {...field}
                 value={userProfileValue}
-                type="text"
+                type="date"
                 className="text-sm h-8 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 onChange={(e) => handleChange(e)}
             />
@@ -47,6 +47,7 @@ const InputTextField: React.FC<InputTextFieldProps> = ({
                 onChange={(e) => handleChangeUserProfile(userProfileKey, e.target.value)}
             /> */}
             {/* INI UNTUK NUNJUKKIN ERROR DARI VALIDASINYA */}
+            {/* kenapa pake touched? biar validasinya jalan satu-satu dari input yg kita isi. Cobain aja kalo gapake touched biar kalian kebayang yaaa */}
             {meta.touched && meta.error ? (
                 <div className="w-full flex flex-col justify-center items-center mt-1" role="alert">
                     <div className="bg-red-100 border border-red-400 text-red-700 px-1 py-1 rounded relative text-xs w-36">
@@ -58,4 +59,4 @@ const InputTextField: React.FC<InputTextFieldProps> = ({
     );
 };
 
-export default InputTextField;
+export default InputDateField;
